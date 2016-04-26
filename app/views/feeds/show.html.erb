@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<% if @feed_details.nil? || @feed_details.respond_to?(:error) %>
+  <h4>
+    ERROR: Unable to fetch Feed Details
+  </h4>
+<% else %>
+  <p>
+    <strong>Location:</strong>
+    <%= @feed.location %>
+  </p>
+  <p>
+    <strong>Title:</strong>
+    <%= @feed_details.channel.title %>
+  </p>
+  <ul>
+    <% @feed_details.items.each do |item| %>
+      <li>
+        <p>
+          <%= link_to item.title, item.link, target: '_blank' %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<%= link_to 'Back', feeds_path %>

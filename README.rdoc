@@ -1,0 +1,3 @@
+Simple RSS Reader
+
+- Accepts a URL and reads feeds from the URL
